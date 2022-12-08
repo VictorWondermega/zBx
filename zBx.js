@@ -42,7 +42,12 @@ function zBx(za,a,n) {
 	this.cls = function() { // hide
 		this.bw.className = this.bw.className.replace(' bwshw',''); 
 		this.bs.className = this.bs.className.replace(' bwshw',''); 
-		window.location.hash=''; this.bw.style.display='none'; this.bs.style.display='none'; return false;
+		if(window.location.hash!='') {
+			var sx = document.body.scrollLeft || document.documentElement.scrollLeft;
+			var sy = document.body.scrollTop || document.documentElement.scrollTop;
+			window.location.hash=''; window.scrollTo(sx,sy);
+		} else {}
+		this.bw.style.display='none'; this.bs.style.display='none'; return false;
 	};
 	///////////////////////////////
 	// funcs
